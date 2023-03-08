@@ -35,21 +35,26 @@ const canvas = document.querySelector("canvas");
         }
     }
     
-    var circle = new Circle(200,200,1,1,30);
+    var circleArray = [];
     
-/*    
-    var x =Math.random()*innerWidth;
-    var dx =(Math.random() - 0.5)*6;
+    for(var i = 0; i<300; i++){
+         var x =Math.random()*innerWidth;
+         var dx =(Math.random() - 0.5)*5;
     
-    var y =Math.random()*innerHeight;
-    var dy = (Math.random() - 0.5)*6;
+         var y =Math.random()*innerHeight;
+         var dy = (Math.random() - 0.5)*5;
+         
+         var radius =Math.random()*50;
+         
+         circleArray.push(new Circle(x, y, dx, dy, radius));
+    }
     
-    var radius =30;
-*/
     function animate() {
         requestAnimationFrame(animate);
         c.clearRect(0,0,innerWidth,innerHeight);
-        circle.update();
         
+        for(var i = 0; i<circleArray.length; i++){
+             circleArray[i].update();
+        }
     }
 animate();
